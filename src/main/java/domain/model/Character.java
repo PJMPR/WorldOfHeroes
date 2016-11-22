@@ -1,6 +1,6 @@
 package domain.model;
 
-public class Character {
+public class Character implements IHaveId {
 
 	private int id;
     private String name;

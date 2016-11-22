@@ -1,6 +1,6 @@
 package domain.model;
 
-public class Guild {
+public class Guild implements IHaveId {
 
 	private int id;
     private String name;
