@@ -4,7 +4,7 @@ public class Guild implements IHaveId {
 
 	private int id;
     private String name;
-    private String faction;
+    private Faction faction;
     
 	public int getId() {
 		return id;
@@ -18,10 +18,10 @@ public class Guild implements IHaveId {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getFaction() {
+	public Faction getFaction() {
 		return faction;
 	}
-	public void setFaction(String string) {
+	public void setFaction(Faction string) {
 		this.faction = string;
 	}
     

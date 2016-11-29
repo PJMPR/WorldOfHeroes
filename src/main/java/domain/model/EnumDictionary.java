@@ -37,7 +37,6 @@ public class EnumDictionary implements IHaveId {
 	}
 	public void setEnumerationName(String enumerationName) {
 		this.enumerationName = enumerationName;
-	}
-	
+	}	
 	
 }
