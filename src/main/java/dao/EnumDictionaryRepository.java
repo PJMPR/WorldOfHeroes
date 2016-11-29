@@ -60,10 +60,12 @@ public class EnumDictionaryRepository
 		return "enumDictionary";
 	}
 
+	@Override
 	protected String insertSql() {
 		return "INSERT INTO enumDictionary(intKey, stringKey, value, enumerationName) VALUES (?,?,?,?)";
 	}
 
+	@Override
 	protected String updateSql() {
 		return "UPDATE enumDictionary SET (intKey, stringKey, value, enumerationName)=(?,?,?,?) WHERE id=?";
 	}
