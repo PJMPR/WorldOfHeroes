@@ -4,10 +4,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import dao.mappers.IMapResultSetIntoEntity;
+import dao.repositories.ICharacterRepository;
 import dao.uow.IUnitOfWork;
 import domain.model.Character;
 
-public class CharacterRepository extends RepositoryBase<Character> {
+public class CharacterRepository extends RepositoryBase<Character> implements ICharacterRepository {
 
 	public CharacterRepository(Connection connection, IMapResultSetIntoEntity<Character> mapper, IUnitOfWork uow) {
 		super(connection, mapper, uow);

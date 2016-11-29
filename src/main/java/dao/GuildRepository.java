@@ -4,10 +4,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import dao.mappers.IMapResultSetIntoEntity;
+import dao.repositories.IGuildRepository;
 import dao.uow.IUnitOfWork;
 import domain.model.Guild;
 
-public class GuildRepository extends RepositoryBase<Guild> {
+public class GuildRepository extends RepositoryBase<Guild> implements IGuildRepository {
 
 	public GuildRepository(Connection connection, IMapResultSetIntoEntity<Guild> mapper, IUnitOfWork uow) {
 		super(connection,mapper,uow);

@@ -4,10 +4,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import dao.mappers.IMapResultSetIntoEntity;
+import dao.repositories.IItemRepository;
 import dao.uow.IUnitOfWork;
 import domain.model.Item;
 
-public class ItemRepository extends RepositoryBase<Item> {
+public class ItemRepository extends RepositoryBase<Item> implements IItemRepository {
 
 	public ItemRepository(Connection connection, IMapResultSetIntoEntity<Item> mapper, IUnitOfWork uow) {
 		super(connection, mapper, uow);

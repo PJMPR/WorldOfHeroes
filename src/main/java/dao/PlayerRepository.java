@@ -4,10 +4,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import dao.mappers.IMapResultSetIntoEntity;
+import dao.repositories.IPlayerRepository;
 import dao.uow.IUnitOfWork;
 import domain.model.Player;
 
-public class PlayerRepository extends RepositoryBase<Player> {
+public class PlayerRepository extends RepositoryBase<Player> implements IPlayerRepository {
 	
 	public PlayerRepository(Connection connection, IMapResultSetIntoEntity<Player> mapper, IUnitOfWork uow) {
 		super(connection,mapper,uow);
@@ -27,10 +28,12 @@ public class PlayerRepository extends RepositoryBase<Player> {
 		return "player";
 	}
 
+	@Override
 	protected String insertSql() {
 		return "INSERT INTO player(login, password, name, surname, email, country) VALUES (?,?,?,?,?,?)";
 	}
-
+	
+	@Override
 	protected String updateSql() {
 		return "UPDATE player SET (login, password, name, surname, email, country)=(?,?,?,?,?,?) WHERE id=?";
 	}

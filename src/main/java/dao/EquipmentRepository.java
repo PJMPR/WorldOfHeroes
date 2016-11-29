@@ -4,10 +4,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import dao.mappers.IMapResultSetIntoEntity;
+import dao.repositories.IEquipmentRepository;
 import dao.uow.IUnitOfWork;
 import domain.model.Equipment;;
 
-public class EquipmentRepository extends RepositoryBase<Equipment> {
+public class EquipmentRepository extends RepositoryBase<Equipment> implements IEquipmentRepository {
 
 	public EquipmentRepository(Connection connection, IMapResultSetIntoEntity<Equipment> mapper, IUnitOfWork uow) {
 		super(connection, mapper, uow);
