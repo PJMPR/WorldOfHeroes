@@ -21,8 +21,8 @@ public class Guild implements IHaveId {
 	public Faction getFaction() {
 		return faction;
 	}
-	public void setFaction(Faction string) {
-		this.faction = string;
+	public void setFaction(Faction faction) {
+		this.faction = faction;
 	}
     
 }

@@ -8,6 +8,7 @@ public class Character implements IHaveId {
 	private Race race;
     private Classes job;
     private int lvl;
+    private int hp;
     private int damage;
     private int strength;
     private int agility;
@@ -52,6 +53,12 @@ public class Character implements IHaveId {
 	}
 	public void setLvl(int lvl) {
 		this.lvl = lvl;
+	}
+	public int getHp() {
+		return hp;
+	}
+	public void setHp(int hp) {
+		this.hp = hp;
 	}
 	public int getDamage() {
 		return damage;

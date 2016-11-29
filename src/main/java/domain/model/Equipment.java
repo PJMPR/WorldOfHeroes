@@ -12,8 +12,7 @@ public class Equipment implements IHaveId {
     private Item waist;
     private Item legs;
     private Item feet;
-    private Item weapon1;
-    private Item weapon2;
+    private Item weapon;
     
 	public int getId() {
 		return id;
@@ -75,17 +74,11 @@ public class Equipment implements IHaveId {
 	public void setFeet(Item feet) {
 		this.feet = feet;
 	}
-	public Item getWeapon1() {
-		return weapon1;
+	public Item getWeapon() {
+		return weapon;
 	}
-	public void setWeapon1(Item weapon1) {
-		this.weapon1 = weapon1;
-	}
-	public Item getWeapon2() {
-		return weapon2;
-	}
-	public void setWeapon2(Item weapon2) {
-		this.weapon2 = weapon2;
+	public void setWeapon(Item weapon) {
+		this.weapon = weapon;
 	}
 
 }

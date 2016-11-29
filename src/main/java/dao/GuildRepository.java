@@ -4,12 +4,13 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import dao.mappers.IMapResultSetIntoEntity;
+import dao.uow.IUnitOfWork;
 import domain.model.Guild;
 
 public class GuildRepository extends RepositoryBase<Guild> {
 
-	public GuildRepository(Connection connection, IMapResultSetIntoEntity<Guild> mapper) {
-		super(connection,mapper);
+	public GuildRepository(Connection connection, IMapResultSetIntoEntity<Guild> mapper, IUnitOfWork uow) {
+		super(connection,mapper,uow);
 	}
 
 	@Override
@@ -35,13 +36,13 @@ public class GuildRepository extends RepositoryBase<Guild> {
 	@Override
 	protected void setInsert(Guild entity) throws SQLException {
 		insert.setString(1, entity.getName());
-		insert.setString(2, entity.getFaction());
+		insert.setObject(2, entity.getFaction());
 	}
 	
 	@Override
 	protected void setUpdate(Guild entity) throws SQLException {
 		update.setString(1, entity.getName());
-		update.setString(2, entity.getFaction());
+		update.setObject(2, entity.getFaction());
 	}
 
 }

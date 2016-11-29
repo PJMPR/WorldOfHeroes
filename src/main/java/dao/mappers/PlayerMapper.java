@@ -10,6 +10,8 @@ public class PlayerMapper implements IMapResultSetIntoEntity<Player>{
 	public Player map(ResultSet rs) throws SQLException {
 		Player player = new Player();
 		player.setId(rs.getInt("id"));
+		player.setLogin(rs.getString("login"));
+		player.setPassword(rs.getString("password"));
 		player.setName(rs.getString("name"));
 		player.setSurname(rs.getString("surname"));
 		player.setEmail(rs.getString("email"));
