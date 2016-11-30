@@ -1,7 +1,11 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import dao.mappers.IMapResultSetIntoEntity;
 import dao.repositories.IItemRepository;
@@ -10,8 +14,26 @@ import domain.model.Item;
 
 public class ItemRepository extends RepositoryBase<Item> implements IItemRepository {
 
+    private PreparedStatement getName;
+    private PreparedStatement getStat;
+	
 	public ItemRepository(Connection connection, IMapResultSetIntoEntity<Item> mapper, IUnitOfWork uow) {
 		super(connection, mapper, uow);
+		try {
+            getName = connection.prepareStatement(getNameSql());
+            getStat = connection.prepareStatement(getStatSql());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+	}
+
+	private String getStatSql() {
+		return "SELECT * FROM item WHERE stat1=? OR stat2=? OR stat3=?";
+	}
+
+	private String getNameSql() {
+		return "SELECT * FROM item WHERE name=?";
 	}
 
 	@Override
@@ -56,6 +78,36 @@ public class ItemRepository extends RepositoryBase<Item> implements IItemReposit
 		update.setInt(5, entity.getValue2());
 		update.setString(6, entity.getStat3());
 		update.setInt(7, entity.getValue3());
+	}
+
+	public List<Item> withName(String name) {
+        List<Item> items = new ArrayList<Item>();
+        try{
+            getName.setString(1, name);
+            ResultSet resultSet = getName.executeQuery();
+            while(resultSet.next()){
+            	items.add(mapper.map(resultSet));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return items;
+	}
+
+	public List<Item> withStat(String stat) {
+        List<Item> items = new ArrayList<Item>();
+        try{
+            getStat.setString(1, stat);
+            getStat.setString(2, stat);
+            getStat.setString(3, stat);
+            ResultSet resultSet = getName.executeQuery();
+            while(resultSet.next()){
+            	items.add(mapper.map(resultSet));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return items;
 	}
 
 }

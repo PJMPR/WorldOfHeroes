@@ -1,7 +1,11 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import dao.mappers.IMapResultSetIntoEntity;
 import dao.repositories.IPlayerRepository;
@@ -10,8 +14,31 @@ import domain.model.Player;
 
 public class PlayerRepository extends RepositoryBase<Player> implements IPlayerRepository {
 	
+    private PreparedStatement getName;
+    private PreparedStatement getSurname;
+    private PreparedStatement getCountry;
+	
 	public PlayerRepository(Connection connection, IMapResultSetIntoEntity<Player> mapper, IUnitOfWork uow) {
 		super(connection,mapper,uow);
+		try {
+            getName = connection.prepareStatement(getNameSql());
+            getSurname = connection.prepareStatement(getSurnameSql());
+            getCountry = connection.prepareStatement(getCountrySql());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+	}
+
+	private String getCountrySql() {
+		return "SELECT * FROM player WHERE country=?";
+	}
+
+	private String getSurnameSql() {
+		return "SELECT * FROM player WHERE surname=?";
+	}
+
+	private String getNameSql() {
+		return "SELECT * FROM player WHERE name=?";
 	}
 
 	@Override
@@ -56,6 +83,48 @@ public class PlayerRepository extends RepositoryBase<Player> implements IPlayerR
 		update.setString(4, entity.getSurname());
 		update.setString(5, entity.getEmail());
 		update.setString(6, entity.getCounty());
+	}
+
+	public List<Player> withName(String name) {
+        List<Player> players = new ArrayList<Player>();
+        try{
+            getName.setString(1, name);
+            ResultSet resultSet = getName.executeQuery();
+            while(resultSet.next()){
+            	players.add(mapper.map(resultSet));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return players;
+	}
+
+	public List<Player> withSurname(String surname) {
+        List<Player> players = new ArrayList<Player>();
+        try{
+            getSurname.setString(1, surname);
+            ResultSet resultSet = getSurname.executeQuery();
+            while(resultSet.next()){
+            	players.add(mapper.map(resultSet));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return players;
+	}
+
+	public List<Player> withCountry(String country) {
+        List<Player> players = new ArrayList<Player>();
+        try{
+            getCountry.setString(1, country);
+            ResultSet resultSet = getCountry.executeQuery();
+            while(resultSet.next()){
+            	players.add(mapper.map(resultSet));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return players;
 	}
 
 }

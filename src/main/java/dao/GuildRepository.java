@@ -1,7 +1,11 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import dao.mappers.IMapResultSetIntoEntity;
 import dao.repositories.IGuildRepository;
@@ -10,8 +14,20 @@ import domain.model.Guild;
 
 public class GuildRepository extends RepositoryBase<Guild> implements IGuildRepository {
 
+    private PreparedStatement getFaction;
+
+	
 	public GuildRepository(Connection connection, IMapResultSetIntoEntity<Guild> mapper, IUnitOfWork uow) {
 		super(connection,mapper,uow);
+		try {
+            getFaction = connection.prepareStatement(getFactionSql());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+	}
+
+	private String getFactionSql() {
+		return "SELECT * FROM guild WHERE faction=?";
 	}
 
 	@Override
@@ -46,6 +62,20 @@ public class GuildRepository extends RepositoryBase<Guild> implements IGuildRepo
 	protected void setUpdate(Guild entity) throws SQLException {
 		update.setString(1, entity.getName());
 		update.setString(2, entity.getFaction().toString());
+	}
+
+	public List<Guild> withFaction(String faction) {
+        List<Guild> guilds = new ArrayList<Guild>();
+        try{
+            getFaction.setString(1, faction);
+            ResultSet resultSet = getFaction.executeQuery();
+            while(resultSet.next()){
+            	guilds.add(mapper.map(resultSet));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return guilds;
 	}
 
 }

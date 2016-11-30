@@ -38,6 +38,7 @@ public class App {
 		head.setValue2(50);
 		head.setStat3("Stamina");
 		head.setValue3(50);
+		head.getId();
 		
 		shoulder.setName("Naramienniki");
 		shoulder.setStat1("Armor");
