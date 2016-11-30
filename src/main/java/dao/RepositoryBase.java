@@ -25,6 +25,7 @@ public abstract class RepositoryBase<TEntity extends IHaveId> implements
 	protected PreparedStatement update;
 	protected PreparedStatement delete;
 	protected PreparedStatement selectAll;
+	protected PreparedStatement selectId;
 	protected IUnitOfWork uow;
 	protected IMapResultSetIntoEntity<TEntity> mapper;
 
@@ -44,6 +45,7 @@ public abstract class RepositoryBase<TEntity extends IHaveId> implements
 			update = connection.prepareStatement(updateSql());
 			delete = connection.prepareStatement(deleteSql());
 			selectAll = connection.prepareStatement(selectAllSql());
+			selectId = connection.prepareStatement(selectIdSql());
 		} catch (SQLException ex) {				
 			ex.printStackTrace();
 		}
@@ -75,6 +77,18 @@ public abstract class RepositoryBase<TEntity extends IHaveId> implements
 		}
 		return null;
 
+	}
+	
+	public TEntity selectId() {
+		try {
+			ResultSet rs = selectId.executeQuery();
+			while (rs.next()) {
+				return null;
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return null;
 	}
 
 	public void add(TEntity entity) {
@@ -135,6 +149,10 @@ public abstract class RepositoryBase<TEntity extends IHaveId> implements
 
 	protected String selectAllSql() {
 		return "SELECT * FROM " + tableName();
+	}
+	
+	protected String selectIdSql() {
+		return "SELECT TOP 1 id FROM " + tableName()+ " ORDER BY id DESC";
 	}
 
 	private void createTableIfnotExists() throws SQLException {

@@ -12,7 +12,7 @@ public class GuildMapper implements IMapResultSetIntoEntity<Guild>{
 		Guild guild = new Guild();
 		guild.setId(rs.getInt("id"));
 		guild.setName(rs.getString("name"));
-		guild.setFaction((Faction) rs.getObject("faction"));
+		guild.setFaction(Faction.valueOf(rs.getString("faction")));
 		return guild;
 	}
 

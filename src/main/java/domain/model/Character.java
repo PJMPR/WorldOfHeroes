@@ -14,9 +14,9 @@ public class Character implements IHaveId {
     private int agility;
     private int intellect;
     private int stamina;
-    private Guild guildId;
-    private Player playerId;
-    private Equipment equipmentId;
+    private Guild guild;
+    private Player player;
+    private Equipment equipment;
     
 	public int getId() {
 		return id;
@@ -90,23 +90,23 @@ public class Character implements IHaveId {
 	public void setStamina(int stamina) {
 		this.stamina = stamina;
 	}
-	public Guild getGuildId() {
-		return guildId;
+	public Guild getGuild() {
+		return guild;
 	}
-	public void setGuildId(Guild guildId) {
-		this.guildId = guildId;
+	public void setGuild(Guild guild) {
+		this.guild = guild;
 	}
-	public Player getPlayerId() {
-		return playerId;
+	public Player getPlayer() {
+		return player;
 	}
-	public void setPlayerId(Player playerId) {
-		this.playerId = playerId;
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
-	public Equipment getEquipmentId() {
-		return equipmentId;
+	public Equipment getEquipment() {
+		return equipment;
 	}
-	public void setEquipmentId(Equipment equipmentId) {
-		this.equipmentId = equipmentId;
+	public void setEquipment(Equipment equipment) {
+		this.equipment = equipment;
 	}
     
 }

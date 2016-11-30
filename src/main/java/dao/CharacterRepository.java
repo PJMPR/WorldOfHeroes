@@ -83,9 +83,9 @@ public class CharacterRepository extends RepositoryBase<Character> implements IC
 		update.setInt(9, entity.getAgility());
 		update.setInt(10, entity.getIntellect());
 		update.setInt(11, entity.getStamina());
-		update.setInt(12, entity.getGuildId().getId());
-		update.setInt(13, entity.getPlayerId().getId());
-		update.setInt(14, entity.getEquipmentId().getId());
+		update.setInt(12, entity.getGuild().getId());
+		update.setInt(13, entity.getPlayer().getId());
+		update.setInt(14, entity.getEquipment().getId());
 	}
 
 	@Override
@@ -101,9 +101,9 @@ public class CharacterRepository extends RepositoryBase<Character> implements IC
 		insert.setInt(9, entity.getAgility());
 		insert.setInt(10, entity.getIntellect());
 		insert.setInt(11, entity.getStamina());
-		insert.setInt(12, entity.getGuildId().getId());
-		insert.setInt(13, entity.getPlayerId().getId());
-		insert.setInt(14, entity.getEquipmentId().getId());
+		insert.setInt(12, entity.getGuild().getId());
+		insert.setInt(13, entity.getPlayer().getId());
+		insert.setInt(14, entity.getEquipment().getId());
 	}
 
 	public List<Character> withLvl(int lvl) {

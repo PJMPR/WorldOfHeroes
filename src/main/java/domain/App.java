@@ -3,6 +3,7 @@ package domain;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Iterator;
 
 import dao.RepositoryCatalog;
 import dao.repositories.IRepositoryCatalog;
@@ -113,6 +114,7 @@ public class App {
 		weapon.setValue3(50);
 		
 		Equipment equipment1 = new Equipment();
+		
 		equipment1.setHead(head);
 		equipment1.setShoulder(shoulder);
 		equipment1.setBack(back);
@@ -151,18 +153,17 @@ public class App {
 		character1.setAgility(0);
 		character1.setIntellect(0);
 		character1.setStamina(1260);
-		character1.setGuildId(guild1);
-		character1.setPlayerId(player1);
-		character1.setEquipmentId(equipment1);
+		character1.setGuild(guild1);
+		character1.setPlayer(player1);
+		character1.setEquipment(equipment1);
 
 		try {
 			Connection connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/workdb");
 			IUnitOfWork uow = new UnitOfWork(connection);
 			IRepositoryCatalog catalog = new RepositoryCatalog(connection, uow);
 			catalog.Players().add(player1);
-			catalog.Characters().add(character1);
-			catalog.Guilds().add(guild1);
 			catalog.Items().add(head);
+			catalog.Items().selectId();
 			catalog.Items().add(shoulder);
 			catalog.Items().add(back);
 			catalog.Items().add(chest);
@@ -173,7 +174,10 @@ public class App {
 			catalog.Items().add(feet);
 			catalog.Items().add(weapon);
 			catalog.Equipments().add(equipment1);
+			catalog.Guilds().add(guild1);
+			catalog.Characters().add(character1);
 			catalog.save();
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

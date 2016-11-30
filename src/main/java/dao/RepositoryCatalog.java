@@ -11,12 +11,12 @@ public class RepositoryCatalog implements IRepositoryCatalog {
 
 	private Connection connection;
 	private IUnitOfWork uow;
-	private EnumDictionaryMapper enumDictionaryMapper;
-	private PlayerMapper playerMapper;
-	private CharacterMapper characterMapper;
-	private GuildMapper guildMapper;
-	private ItemMapper itemMapper;
-	private EquipmentMapper equipmentMapper;
+	private EnumDictionaryMapper enumDictionaryMapper = new EnumDictionaryMapper();
+	private PlayerMapper playerMapper = new PlayerMapper();
+	private CharacterMapper characterMapper = new CharacterMapper();
+	private GuildMapper guildMapper = new GuildMapper();
+	private ItemMapper itemMapper = new ItemMapper();
+	private EquipmentMapper equipmentMapper = new EquipmentMapper();
 
 	public RepositoryCatalog(Connection connection, IUnitOfWork uow) {
 		super();
@@ -50,7 +50,6 @@ public class RepositoryCatalog implements IRepositoryCatalog {
 
 	public void save() throws SQLException {
 		uow.commit();
-		connection.close();
 	}
 
 }

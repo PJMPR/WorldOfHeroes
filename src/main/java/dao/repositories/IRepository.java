@@ -9,6 +9,8 @@ public interface IRepository<TEntity extends IHaveId> {
 	public List<TEntity> getAll();
 
 	public TEntity get(int id);
+	
+	public TEntity selectId();
 
 	public void update(TEntity entity);
 
