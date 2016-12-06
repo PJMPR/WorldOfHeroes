@@ -27,9 +27,9 @@ public class CharacterMapper implements IMapResultSetIntoEntity<Character>{
 		character.setAgility(rs.getInt("agility"));
 		character.setIntellect(rs.getInt("intellect"));
 		character.setStamina(rs.getInt("stamina"));
-		character.setGuild((Guild)rs.getObject("guildId"));
-		character.setPlayer((Player)rs.getObject("playerId"));
-		character.setEquipment((Equipment)rs.getObject("equipmentId"));
+		character.setGuildId(rs.getInt("guildId"));
+		character.setPlayerId(rs.getInt("playerId"));
+		character.setEquipmentId(rs.getInt("equipmentId"));
 		return character;
 	}
 

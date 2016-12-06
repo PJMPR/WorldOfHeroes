@@ -3,16 +3,16 @@ package domain.model;
 public class Equipment implements IHaveId {
 	
 	private int id;
-    private Item head;
-    private Item shoulder;
-    private Item back;
-    private Item chest;
-    private Item wrist;
-    private Item hands;
-    private Item waist;
-    private Item legs;
-    private Item feet;
-    private Item weapon;
+    private int headId;
+    private int shoulderId;
+    private int backId;
+    private int chestId;
+    private int wristId;
+    private int handsId;
+    private int waistId;
+    private int legsId;
+    private int feetId;
+    private int weaponId;
     
 	public int getId() {
 		return id;
@@ -20,65 +20,65 @@ public class Equipment implements IHaveId {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Item getHead() {
-		return head;
+	public int getHeadId() {
+		return headId;
 	}
-	public void setHead(Item head) {
-		this.head = head;
+	public void setHeadId(int headId) {
+		this.headId = headId;
 	}
-	public Item getShoulder() {
-		return shoulder;
+	public int getShoulderId() {
+		return shoulderId;
 	}
-	public void setShoulder(Item shoulder) {
-		this.shoulder = shoulder;
+	public void setShoulderId(int shoulderId) {
+		this.shoulderId = shoulderId;
 	}
-	public Item getBack() {
-		return back;
+	public int getBackId() {
+		return backId;
 	}
-	public void setBack(Item back) {
-		this.back = back;
+	public void setBackId(int backId) {
+		this.backId = backId;
 	}
-	public Item getChest() {
-		return chest;
+	public int getChestId() {
+		return chestId;
 	}
-	public void setChest(Item chest) {
-		this.chest = chest;
+	public void setChestId(int chestId) {
+		this.chestId = chestId;
 	}
-	public Item getWrist() {
-		return wrist;
+	public int getWristId() {
+		return wristId;
 	}
-	public void setWrist(Item wrist) {
-		this.wrist = wrist;
+	public void setWristId(int wristId) {
+		this.wristId = wristId;
 	}
-	public Item getHands() {
-		return hands;
+	public int getHandsId() {
+		return handsId;
 	}
-	public void setHands(Item hands) {
-		this.hands = hands;
+	public void setHandsId(int handsId) {
+		this.handsId = handsId;
 	}
-	public Item getWaist() {
-		return waist;
+	public int getWaistId() {
+		return waistId;
 	}
-	public void setWaist(Item waist) {
-		this.waist = waist;
+	public void setWaistId(int waistId) {
+		this.waistId = waistId;
 	}
-	public Item getLegs() {
-		return legs;
+	public int getLegsId() {
+		return legsId;
 	}
-	public void setLegs(Item legs) {
-		this.legs = legs;
+	public void setLegsId(int legsId) {
+		this.legsId = legsId;
 	}
-	public Item getFeet() {
-		return feet;
+	public int getFeetId() {
+		return feetId;
 	}
-	public void setFeet(Item feet) {
-		this.feet = feet;
+	public void setFeetId(int feetId) {
+		this.feetId = feetId;
 	}
-	public Item getWeapon() {
-		return weapon;
+	public int getWeaponId() {
+		return weaponId;
 	}
-	public void setWeapon(Item weapon) {
-		this.weapon = weapon;
+	public void setWeaponId(int weaponId) {
+		this.weaponId = weaponId;
 	}
 
 }

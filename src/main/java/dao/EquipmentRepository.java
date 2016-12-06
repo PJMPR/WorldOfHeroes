@@ -53,30 +53,30 @@ public class EquipmentRepository extends RepositoryBase<Equipment> implements IE
 
 	@Override
 	protected void setUpdate(Equipment entity) throws SQLException {
-		update.setInt(1, entity.getHead().getId());
-		update.setInt(2, entity.getShoulder().getId());
-		update.setInt(3, entity.getBack().getId());
-		update.setInt(4, entity.getChest().getId());
-		update.setInt(5, entity.getWrist().getId());
-		update.setInt(6, entity.getHands().getId());
-		update.setInt(7, entity.getWaist().getId());
-		update.setInt(8, entity.getLegs().getId());
-		update.setInt(9, entity.getFeet().getId());
-		update.setInt(10, entity.getWeapon().getId());
+		update.setInt(1, entity.getHeadId());
+		update.setInt(2, entity.getShoulderId());
+		update.setInt(3, entity.getBackId());
+		update.setInt(4, entity.getChestId());
+		update.setInt(5, entity.getWristId());
+		update.setInt(6, entity.getHandsId());
+		update.setInt(7, entity.getWaistId());
+		update.setInt(8, entity.getLegsId());
+		update.setInt(9, entity.getFeetId());
+		update.setInt(10, entity.getWeaponId());
 	}
 
 	@Override
 	protected void setInsert(Equipment entity) throws SQLException {
-		insert.setInt(1, entity.getHead().getId());
-		insert.setInt(2, entity.getShoulder().getId());
-		insert.setInt(3, entity.getBack().getId());
-		insert.setInt(4, entity.getChest().getId());
-		insert.setInt(5, entity.getWrist().getId());
-		insert.setInt(6, entity.getHands().getId());
-		insert.setInt(7, entity.getWaist().getId());
-		insert.setInt(8, entity.getLegs().getId());
-		insert.setInt(9, entity.getFeet().getId());
-		insert.setInt(10, entity.getWeapon().getId());
+		insert.setInt(1, entity.getHeadId());
+		insert.setInt(2, entity.getShoulderId());
+		insert.setInt(3, entity.getBackId());
+		insert.setInt(4, entity.getChestId());
+		insert.setInt(5, entity.getWristId());
+		insert.setInt(6, entity.getHandsId());
+		insert.setInt(7, entity.getWaistId());
+		insert.setInt(8, entity.getLegsId());
+		insert.setInt(9, entity.getFeetId());
+		insert.setInt(10, entity.getWeaponId());
 	}
 
 	public List<Equipment> withAllItemsEquiped() {

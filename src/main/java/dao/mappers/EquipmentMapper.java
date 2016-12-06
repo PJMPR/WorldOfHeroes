@@ -11,16 +11,16 @@ public class EquipmentMapper implements IMapResultSetIntoEntity<Equipment>{
 	public Equipment map(ResultSet rs) throws SQLException {
 		Equipment equipment = new Equipment();
 		equipment.setId(rs.getInt("id"));
-		equipment.setHead((Item)rs.getObject("head"));
-		equipment.setShoulder((Item)rs.getObject("shoulder"));
-		equipment.setBack((Item)rs.getObject("back"));
-		equipment.setChest((Item)rs.getObject("chest"));
-		equipment.setWrist((Item)rs.getObject("wrist"));
-		equipment.setHands((Item)rs.getObject("hands"));
-		equipment.setWaist((Item)rs.getObject("waist"));
-		equipment.setLegs((Item)rs.getObject("legs"));
-		equipment.setFeet((Item)rs.getObject("feet"));
-		equipment.setWeapon((Item)rs.getObject("weapon"));
+		equipment.setHeadId(rs.getInt("head"));
+		equipment.setShoulderId(rs.getInt("shoulder"));
+		equipment.setBackId(rs.getInt("back"));
+		equipment.setChestId(rs.getInt("chest"));
+		equipment.setWristId(rs.getInt("wrist"));
+		equipment.setHandsId(rs.getInt("hands"));
+		equipment.setWaistId(rs.getInt("waist"));
+		equipment.setLegsId(rs.getInt("legs"));
+		equipment.setFeetId(rs.getInt("feet"));
+		equipment.setWeaponId(rs.getInt("weapon"));
 		return equipment;
 	}
 

@@ -39,7 +39,6 @@ public class App {
 		head.setValue2(50);
 		head.setStat3("Stamina");
 		head.setValue3(50);
-		head.getId();
 		
 		shoulder.setName("Naramienniki");
 		shoulder.setStat1("Armor");
@@ -115,16 +114,16 @@ public class App {
 		
 		Equipment equipment1 = new Equipment();
 		
-		equipment1.setHead(head);
-		equipment1.setShoulder(shoulder);
-		equipment1.setBack(back);
-		equipment1.setChest(chest);
-		equipment1.setWrist(wrist);
-		equipment1.setHands(hands);
-		equipment1.setWaist(waist);
-		equipment1.setLegs(legs);
-		equipment1.setFeet(feet);
-		equipment1.setWeapon(weapon);
+		equipment1.setHeadId(0);
+		equipment1.setShoulderId(1);
+		equipment1.setBackId(2);
+		equipment1.setChestId(3);
+		equipment1.setWristId(4);
+		equipment1.setHandsId(5);
+		equipment1.setWaistId(6);
+		equipment1.setLegsId(7);
+		equipment1.setFeetId(8);
+		equipment1.setWeaponId(9);
 		
 		Player player1 = new Player();
 		
@@ -153,9 +152,9 @@ public class App {
 		character1.setAgility(0);
 		character1.setIntellect(0);
 		character1.setStamina(1260);
-		character1.setGuild(guild1);
-		character1.setPlayer(player1);
-		character1.setEquipment(equipment1);
+		character1.setGuildId(0);
+		character1.setPlayerId(0);
+		character1.setEquipmentId(0);
 
 		try {
 			Connection connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/workdb");
@@ -163,7 +162,6 @@ public class App {
 			IRepositoryCatalog catalog = new RepositoryCatalog(connection, uow);
 			catalog.Players().add(player1);
 			catalog.Items().add(head);
-			catalog.Items().selectId();
 			catalog.Items().add(shoulder);
 			catalog.Items().add(back);
 			catalog.Items().add(chest);
