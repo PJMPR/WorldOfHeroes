@@ -5,10 +5,7 @@ import java.sql.SQLException;
 
 import domain.model.Character;
 import domain.model.Classes;
-import domain.model.Equipment;
 import domain.model.Faction;
-import domain.model.Guild;
-import domain.model.Player;
 import domain.model.Race;
 
 public class CharacterMapper implements IMapResultSetIntoEntity<Character>{

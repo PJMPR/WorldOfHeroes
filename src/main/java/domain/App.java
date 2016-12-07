@@ -3,7 +3,6 @@ package domain;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Iterator;
 
 import dao.RepositoryCatalog;
 import dao.repositories.IRepositoryCatalog;
@@ -175,7 +174,15 @@ public class App {
 			catalog.Guilds().add(guild1);
 			catalog.Characters().add(character1);
 			catalog.save();
-			connection.close();
+			System.out.println("Lista imion postaci o lewelu 100:");
+	        for(int i = 0; i < catalog.Characters().withLvl(100).size(); i++) {
+	            System.out.println(catalog.Characters().withLvl(100).get(i).getName());
+	        }
+			System.out.println("Lista imion postaci z frakcji Alliance:");
+	        for(int i = 0; i < catalog.Characters().withFaction("Alliance").size(); i++) {
+	            System.out.println(catalog.Characters().withFaction("Alliance").get(i).getName());
+	        }
+	        connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

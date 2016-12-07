@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import domain.model.Equipment;
-import domain.model.Item;
 
 public class EquipmentMapper implements IMapResultSetIntoEntity<Equipment>{
 
