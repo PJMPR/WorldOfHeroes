@@ -18,6 +18,9 @@ public class CharacterRepository extends RepositoryBase<Character> implements IC
 	private PreparedStatement getFaction;
 	private PreparedStatement getRace;
 	private PreparedStatement getJob;
+	private PreparedStatement setGuildId;
+	private PreparedStatement setPlayerId;
+	private PreparedStatement setEquipmentId;	
 
 	public CharacterRepository(Connection connection, IMapResultSetIntoEntity<Character> mapper, IUnitOfWork uow) {
 		super(connection, mapper, uow);
@@ -26,6 +29,9 @@ public class CharacterRepository extends RepositoryBase<Character> implements IC
 			getFaction = connection.prepareStatement(getFactionSql());
 			getRace = connection.prepareStatement(getRaceSql());
 			getJob = connection.prepareStatement(getJobSql());
+			setGuildId = connection.prepareStatement(setGuildIdSql());
+			setPlayerId = connection.prepareStatement(setPlayerIdSql());
+			setEquipmentId = connection.prepareStatement(setEquipmentIdSql());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -45,6 +51,18 @@ public class CharacterRepository extends RepositoryBase<Character> implements IC
 
 	private String getLvlSql() {
 		return "SELECT * FROM character WHERE lvl=?";
+	}
+	
+	protected String setGuildIdSql() {
+        return "UPDATE character SET(guildId) = (SELECT max(id) from guild) where id = (SELECT max(id) FROM character)";
+	}
+	
+	protected String setPlayerIdSql() {
+        return "UPDATE character SET(playerId) = (SELECT max(id) from player) where id = (SELECT max(id) FROM character)";
+	}
+	
+	protected String setEquipmentIdSql() {
+        return "UPDATE character SET(equipmentId) = (SELECT max(id) from equipment) where id = (SELECT max(id) FROM character)";
 	}
 
 	@Override
@@ -125,6 +143,16 @@ public class CharacterRepository extends RepositoryBase<Character> implements IC
 		return characters;
 	}
 
+	public void setForeignId() {
+		try {
+			setGuildId.executeUpdate();
+			setPlayerId.executeUpdate();
+			setEquipmentId.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public List<Character> withFaction(String faction) {
 		List<Character> characters = new ArrayList<Character>();
 		try {

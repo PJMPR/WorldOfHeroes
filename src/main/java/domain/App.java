@@ -157,6 +157,7 @@ public class App {
 
 		try {
 			Connection connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/workdb");
+			connection.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
 			IUnitOfWork uow = new UnitOfWork(connection);
 			IRepositoryCatalog catalog = new RepositoryCatalog(connection, uow);
 			catalog.Players().add(player1);
@@ -173,6 +174,8 @@ public class App {
 			catalog.Equipments().add(equipment1);
 			catalog.Guilds().add(guild1);
 			catalog.Characters().add(character1);
+			catalog.save();
+			catalog.Characters().setForeignId();
 			catalog.save();
 			System.out.println("Lista imion postaci o lewelu 100:");
 	        for(int i = 0; i < catalog.Characters().withLvl(100).size(); i++) {

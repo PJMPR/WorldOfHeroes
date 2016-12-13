@@ -154,7 +154,7 @@ public abstract class RepositoryBase<TEntity extends IHaveId> implements
 	protected String selectIdSql() {
 		return "SELECT TOP 1 id FROM " + tableName()+ " ORDER BY id DESC";
 	}
-
+	
 	private void createTableIfnotExists() throws SQLException {
 		Statement createTable = this.connection.createStatement();
 
