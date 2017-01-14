@@ -4,9 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import domain.model.Character;
-import domain.model.Classes;
-import domain.model.Faction;
-import domain.model.Race;
 
 public class CharacterMapper implements IMapResultSetIntoEntity<Character>{
 
@@ -14,9 +11,9 @@ public class CharacterMapper implements IMapResultSetIntoEntity<Character>{
 		Character character = new Character();
 		character.setId(rs.getInt("id"));
 		character.setName(rs.getString("name"));
-		character.setFaction((Faction)rs.getObject("faction"));
-		character.setRace((Race)rs.getObject("race"));
-		character.setJob((Classes)rs.getObject("job"));
+		character.setFaction(rs.getString("faction"));
+		character.setRace(rs.getString("race"));
+		character.setJob(rs.getString("job"));
 		character.setLvl(rs.getInt("lvl"));
 		character.setHp(rs.getInt("hp"));
 		character.setDamage(rs.getInt("damage"));

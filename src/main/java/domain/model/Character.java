@@ -4,9 +4,9 @@ public class Character implements IHaveId {
 
 	private int id;
     private String name;
-    private Faction faction;
-	private Race race;
-    private Classes job;
+    private String faction;
+	private String race;
+    private String job;
     private int lvl;
     private int hp;
     private int damage;
@@ -30,22 +30,22 @@ public class Character implements IHaveId {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Faction getFaction() {
+	public String getFaction() {
 		return faction;
 	}
-	public void setFaction(Faction faction) {
+	public void setFaction(String faction) {
 		this.faction = faction;
 	}
-	public Race getRace() {
+	public String getRace() {
 		return race;
 	}
-	public void setRace(Race race) {
+	public void setRace(String race) {
 		this.race = race;
 	}
-	public Classes getJob() {
+	public String getJob() {
 		return job;
 	}
-	public void setJob(Classes job) {
+	public void setJob(String job) {
 		this.job = job;
 	}
 	public int getLvl() {

@@ -136,14 +136,14 @@ public class App {
 		Guild guild1 = new Guild();
 		
 		guild1.setName("Sarmatia");
-		guild1.setFaction(Faction.Alliance);
+		guild1.setFaction(Faction.Alliance.toString());
 		
 		Character character1 = new Character();
 		
 		character1.setName("Glonfindel");
-		character1.setFaction(Faction.Alliance);
-		character1.setRace(Race.Human);
-		character1.setJob(Classes.Paladin);
+		character1.setFaction(Faction.Alliance.toString());
+		character1.setRace(Race.Human.toString());
+		character1.setJob(Classes.Paladin.toString());
 		character1.setLvl(100);
 		character1.setHp(126000);
 		character1.setDamage(4500);
