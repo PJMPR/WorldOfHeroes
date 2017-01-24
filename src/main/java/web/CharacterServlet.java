@@ -25,6 +25,10 @@ public class CharacterServlet extends HttpServlet {
         { 
         	response.sendRedirect("/addPlayer.html");
         }
+		Guild guild = new Guild();
+		guild.setName(request.getParameter("guild_name"));
+		guild.setFaction(request.getParameter("faction"));
+		session.setAttribute("guild", guild);
 		Character character = new Character();
 		Integer lvl = new Integer(request.getParameter("lvl"));
 		character.setName(request.getParameter("name"));
@@ -32,11 +36,16 @@ public class CharacterServlet extends HttpServlet {
 		character.setRace(request.getParameter("race"));
 		character.setJob(request.getParameter("job"));
 		character.setLvl(lvl);
+		character.setHp(100);
+		character.setDamage(100);
+		character.setStamina(100);
+		character.setStrength(100);
+		character.setIntellect(100);
+		character.setAgility(100);
+		character.setGuildId(0);
+		character.setPlayerId(0);
+		character.setEquipmentId(0);
 		session.setAttribute("character", character);
-		Guild guild = new Guild();
-		guild.setName(request.getParameter("guild_name"));
-		guild.setFaction(request.getParameter("faction"));
-		session.setAttribute("guild", guild);
 		response.sendRedirect("/addEquipment.html");
 	}
 

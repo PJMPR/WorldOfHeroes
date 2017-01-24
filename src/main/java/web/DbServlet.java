@@ -18,6 +18,9 @@ import dao.uow.IUnitOfWork;
 import dao.uow.UnitOfWork;
 import domain.model.Player;
 import domain.model.Guild;
+import domain.model.Item;
+import domain.model.Character;
+import domain.model.Equipment;
 
 @WebServlet("/dbServlet")
 public class DbServlet extends HttpServlet {
@@ -35,12 +38,49 @@ public class DbServlet extends HttpServlet {
 			IRepositoryCatalog catalog = new RepositoryCatalog(connection, uow);
 			HttpSession session = request.getSession();
 			Player player = (Player) session.getAttribute("player");
-		    //Character character = (Character) session.getAttribute("character");
+		    Character character = (Character) session.getAttribute("character");
 		    Guild guild = (Guild) session.getAttribute("guild");
+		    Equipment equipment = (Equipment) session.getAttribute("equipment");
+		    Item head = (Item) session.getAttribute("head");
+			Item shoulder = (Item) session.getAttribute("shoulder");
+			Item back = (Item) session.getAttribute("back");
+			Item chest = (Item) session.getAttribute("chest");
+			Item wrist = (Item) session.getAttribute("wrist");
+			Item hands = (Item) session.getAttribute("hands");
+			Item waist = (Item) session.getAttribute("waist");
+			Item legs = (Item) session.getAttribute("legs");
+			Item feet = (Item) session.getAttribute("feet");
+			Item weapon = (Item) session.getAttribute("weapon");
 			catalog.Players().add(player);
-			//catalog.Characters().add(character);
+			catalog.Items().add(head);
+			catalog.Items().add(shoulder);
+			catalog.Items().add(back);
+			catalog.Items().add(chest);
+			catalog.Items().add(wrist);
+			catalog.Items().add(hands);
+			catalog.Items().add(waist);
+			catalog.Items().add(legs);
+			catalog.Items().add(feet);
+			catalog.Items().add(weapon);
+			catalog.Equipments().add(equipment);
 			catalog.Guilds().add(guild);
+			catalog.Characters().add(character);
 			catalog.save();
+			session.removeAttribute("player");
+		    session.removeAttribute("character");
+		    session.removeAttribute("guild");
+		    session.removeAttribute("equipment");
+		    session.removeAttribute("head");
+			session.removeAttribute("shoulder");
+			session.removeAttribute("back");
+			session.removeAttribute("chest");
+			session.removeAttribute("wrist");
+			session.removeAttribute("hands");
+			session.removeAttribute("waist");
+			session.removeAttribute("legs");
+			session.removeAttribute("feet");
+			session.removeAttribute("weapon");
+			response.sendRedirect("index.html");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}		

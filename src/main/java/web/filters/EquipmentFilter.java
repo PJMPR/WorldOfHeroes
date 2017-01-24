@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import domain.model.Equipment;
 
-@WebFilter("final.jsp")
+@WebFilter("/final.jsp")
 public class EquipmentFilter implements Filter {
 
     public EquipmentFilter() {

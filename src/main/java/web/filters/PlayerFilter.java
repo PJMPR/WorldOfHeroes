@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import domain.model.Player;
 
-@WebFilter(urlPatterns = {"addCharacter.jsp","addEquipment.html","characterServlet","equipmentServlet","final.jsp"})
+@WebFilter(urlPatterns = {"/addCharacter.jsp","/addEquipment.html","/characterServlet","/equipmentServlet","/final.jsp"})
 public class PlayerFilter implements Filter {
 
 	public PlayerFilter() {

@@ -64,6 +64,7 @@
                     </select> </br>
 					Poziom:</br>
                     <input name="lvl" value="110" /></br>
+                    
                     Nazwa gildii:</br>
                     <input name="guild_name" value="Sarmatia" /></br>
                 </div>
