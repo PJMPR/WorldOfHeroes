@@ -19,7 +19,7 @@
             <form  enctype="text/plain">
                 <div>
                     Imie postaci:</br>
-                    <input name="name" /></br>
+                    <input name="name" value="Glonfindel" /></br>
                     Frakcja:</br>
                     <select name="faction">
                         <%
@@ -63,9 +63,9 @@
                         %>
                     </select> </br>
 					Poziom:</br>
-                    <input name="lvl" /></br>
+                    <input name="lvl" value="110" /></br>
                     Nazwa gildii:</br>
-                    <input name="guild_name" /></br>
+                    <input name="guild_name" value="Sarmatia" /></br>
                 </div>
                 <input type="submit" formaction="characterServlet" value="Dodaj postać" />
             </form>              

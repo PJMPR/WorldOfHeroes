@@ -17,7 +17,6 @@ import dao.repositories.IRepositoryCatalog;
 import dao.uow.IUnitOfWork;
 import dao.uow.UnitOfWork;
 import domain.model.Player;
-import domain.model.Character;
 import domain.model.Guild;
 
 @WebServlet("/dbServlet")

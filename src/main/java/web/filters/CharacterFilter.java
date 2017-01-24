@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import domain.model.Character;
 
-@WebFilter(urlPatterns = {"final.jsp"})
+@WebFilter(urlPatterns = {"addEquipment.html","equipmentServlet","final.jsp"})
 public class CharacterFilter implements Filter {
 
 	public CharacterFilter() {

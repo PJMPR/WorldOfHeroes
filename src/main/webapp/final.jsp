@@ -1,3 +1,5 @@
+<%@page import="domain.model.Item"%>
+<%@page import="domain.model.Equipment"%>
 <%@page import="java.util.List"%>
 <%@page import="domain.model.Player"%>
 <%@page import="domain.model.Character"%>
@@ -15,6 +17,17 @@
 	    Player player = (Player) session.getAttribute("player");
 	    Character character = (Character) session.getAttribute("character");
 	    Guild guild = (Guild) session.getAttribute("guild");
+	    Equipment equipment = (Equipment) session.getAttribute("equipment");
+	    Item head = (Item) session.getAttribute("head");
+		Item shoulder = (Item) session.getAttribute("shoulder");
+		Item back = (Item) session.getAttribute("back");
+		Item chest = (Item) session.getAttribute("chest");
+		Item wrist = (Item) session.getAttribute("wrist");
+		Item hands = (Item) session.getAttribute("hands");
+		Item waist = (Item) session.getAttribute("waist");
+		Item legs = (Item) session.getAttribute("legs");
+		Item feet = (Item) session.getAttribute("feet");
+		Item weapon = (Item) session.getAttribute("weapon");
 	%>
 	<h1>Gracz</h1>
 	<h2>Login: <%=player.getLogin() %></h2>
@@ -31,6 +44,47 @@
 	<h2>Poziom: <%=character.getLvl() %></h2>
 	<h1>Gildia</h1>
 	<h2>Nazwa gildii: <%=guild.getName() %></h2>
+	<h1>Ekwipunek</h1>
+	<h2>Głowa: <%=head.getName() %></h2>
+	<h2><%=head.getStat1() %>:<%=head.getValue1() %></h2>
+	<h2><%=head.getStat2() %>:<%=head.getValue2() %></h2>
+	<h2><%=head.getStat3() %>:<%=head.getValue3() %></h2>
+	<h2>Ramiona: <%=head.getName() %></h2>
+	<h2><%=head.getStat1() %>:<%=head.getValue1() %></h2>
+	<h2><%=head.getStat2() %>:<%=head.getValue2() %></h2>
+	<h2><%=head.getStat3() %>:<%=head.getValue3() %></h2>
+	<h2>Plecy: <%=head.getName() %></h2>
+	<h2><%=head.getStat1() %>:<%=head.getValue1() %></h2>
+	<h2><%=head.getStat2() %>:<%=head.getValue2() %></h2>
+	<h2><%=head.getStat3() %>:<%=head.getValue3() %></h2>
+	<h2>Klata: <%=head.getName() %></h2>
+	<h2><%=head.getStat1() %>:<%=head.getValue1() %></h2>
+	<h2><%=head.getStat2() %>:<%=head.getValue2() %></h2>
+	<h2><%=head.getStat3() %>:<%=head.getValue3() %></h2>
+	<h2>Nadgarstek: <%=head.getName() %></h2>
+	<h2><%=head.getStat1() %>:<%=head.getValue1() %></h2>
+	<h2><%=head.getStat2() %>:<%=head.getValue2() %></h2>
+	<h2><%=head.getStat3() %>:<%=head.getValue3() %></h2>
+	<h2>Ręce: <%=head.getName() %></h2>
+	<h2><%=head.getStat1() %>:<%=head.getValue1() %></h2>
+	<h2><%=head.getStat2() %>:<%=head.getValue2() %></h2>
+	<h2><%=head.getStat3() %>:<%=head.getValue3() %></h2>
+	<h2>Pasek: <%=head.getName() %></h2>
+	<h2><%=head.getStat1() %>:<%=head.getValue1() %></h2>
+	<h2><%=head.getStat2() %>:<%=head.getValue2() %></h2>
+	<h2><%=head.getStat3() %>:<%=head.getValue3() %></h2>
+	<h2>Nogi: <%=head.getName() %></h2>
+	<h2><%=head.getStat1() %>:<%=head.getValue1() %></h2>
+	<h2><%=head.getStat2() %>:<%=head.getValue2() %></h2>
+	<h2><%=head.getStat3() %>:<%=head.getValue3() %></h2>
+	<h2>Stopy: <%=head.getName() %></h2>
+	<h2><%=head.getStat1() %>:<%=head.getValue1() %></h2>
+	<h2><%=head.getStat2() %>:<%=head.getValue2() %></h2>
+	<h2><%=head.getStat3() %>:<%=head.getValue3() %></h2>
+	<h2>Broń: <%=head.getName() %></h2>
+	<h2><%=head.getStat1() %>:<%=head.getValue1() %></h2>
+	<h2><%=head.getStat2() %>:<%=head.getValue2() %></h2>
+	<h2><%=head.getStat3() %>:<%=head.getValue3() %></h2>
 	<form action="dbServlet" method="get">
 	<input type="submit" value="Zapisz">
 	</form>

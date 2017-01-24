@@ -37,7 +37,7 @@ public class CharacterServlet extends HttpServlet {
 		guild.setName(request.getParameter("guild_name"));
 		guild.setFaction(request.getParameter("faction"));
 		session.setAttribute("guild", guild);
-		response.sendRedirect("/final.jsp");
+		response.sendRedirect("/addEquipment.html");
 	}
 
 }
