@@ -24,9 +24,9 @@ public class PlayerServlet extends HttpServlet {
 		player.setName(request.getParameter("name"));
 		player.setSurname(request.getParameter("surname"));
 		player.setEmail(request.getParameter("email"));
-		player.setCounty(request.getParameter("country"));
+		player.setCountry(request.getParameter("country"));
 		HttpSession session = request.getSession();
 		session.setAttribute("player", player);
-		response.sendRedirect("/addCharacter.jsp");
+		response.sendRedirect("addCharacter.jsp");
 	}
 }

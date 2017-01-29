@@ -11,7 +11,6 @@ public class RepositoryCatalog implements IRepositoryCatalog {
 
 	private Connection connection;
 	private IUnitOfWork uow;
-	private EnumDictionaryMapper enumDictionaryMapper = new EnumDictionaryMapper();
 	private PlayerMapper playerMapper = new PlayerMapper();
 	private CharacterMapper characterMapper = new CharacterMapper();
 	private GuildMapper guildMapper = new GuildMapper();
@@ -26,10 +25,6 @@ public class RepositoryCatalog implements IRepositoryCatalog {
 
 	public IPlayerRepository Players() {
 		return new PlayerRepository(connection, playerMapper, uow);
-	}
-
-	public IEnumDictionariesRepository Dictionaries() {
-		return new EnumDictionaryRepository(connection, enumDictionaryMapper, uow);
 	}
 
 	public ICharacterRepository Characters() {

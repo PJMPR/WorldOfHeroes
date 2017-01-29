@@ -72,7 +72,7 @@ public class PlayerRepository extends RepositoryBase<Player> implements IPlayerR
 		insert.setString(3, entity.getName());
 		insert.setString(4, entity.getSurname());
 		insert.setString(5, entity.getEmail());
-		insert.setString(6, entity.getCounty());
+		insert.setString(6, entity.getCountry());
 	}
 	
 	@Override
@@ -82,7 +82,7 @@ public class PlayerRepository extends RepositoryBase<Player> implements IPlayerR
 		update.setString(3, entity.getName());
 		update.setString(4, entity.getSurname());
 		update.setString(5, entity.getEmail());
-		update.setString(6, entity.getCounty());
+		update.setString(6, entity.getCountry());
 	}
 
 	public List<Player> withName(String name) {

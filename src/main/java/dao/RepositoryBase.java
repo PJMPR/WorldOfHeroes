@@ -25,7 +25,7 @@ public abstract class RepositoryBase<TEntity extends IHaveId> implements
 	protected PreparedStatement update;
 	protected PreparedStatement delete;
 	protected PreparedStatement selectAll;
-	protected PreparedStatement selectId;
+	protected PreparedStatement selectLastId;
 	protected IUnitOfWork uow;
 	protected IMapResultSetIntoEntity<TEntity> mapper;
 
@@ -45,7 +45,7 @@ public abstract class RepositoryBase<TEntity extends IHaveId> implements
 			update = connection.prepareStatement(updateSql());
 			delete = connection.prepareStatement(deleteSql());
 			selectAll = connection.prepareStatement(selectAllSql());
-			selectId = connection.prepareStatement(selectIdSql());
+			selectLastId = connection.prepareStatement(selectLastIdSql());
 		} catch (SQLException ex) {				
 			ex.printStackTrace();
 		}
@@ -79,16 +79,16 @@ public abstract class RepositoryBase<TEntity extends IHaveId> implements
 
 	}
 	
-	public TEntity selectId() {
+	public int getLastId() {
 		try {
-			ResultSet rs = selectId.executeQuery();
+			ResultSet rs = selectLastId.executeQuery();
 			while (rs.next()) {
-				return null;
+				return rs.getInt("id");
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
-		return null;
+		return 0;
 	}
 
 	public void add(TEntity entity) {
@@ -151,7 +151,7 @@ public abstract class RepositoryBase<TEntity extends IHaveId> implements
 		return "SELECT * FROM " + tableName();
 	}
 	
-	protected String selectIdSql() {
+	protected String selectLastIdSql() {
 		return "SELECT TOP 1 id FROM " + tableName()+ " ORDER BY id DESC";
 	}
 	

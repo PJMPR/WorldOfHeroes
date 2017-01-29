@@ -6,8 +6,6 @@ public interface IRepositoryCatalog {
 	
 	public IPlayerRepository Players();
 
-	public IEnumDictionariesRepository Dictionaries();
-
 	public ICharacterRepository Characters();
 
 	public IGuildRepository Guilds();

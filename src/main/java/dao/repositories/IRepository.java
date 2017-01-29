@@ -9,13 +9,13 @@ public interface IRepository<TEntity extends IHaveId> {
 	public List<TEntity> getAll();
 
 	public TEntity get(int id);
-	
-	public TEntity selectId();
 
 	public void update(TEntity entity);
 
 	public void add(TEntity entity);
 
 	public void delete(TEntity entity);
+	
+	public int getLastId();
 
 }

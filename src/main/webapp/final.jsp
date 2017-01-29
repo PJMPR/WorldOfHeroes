@@ -35,7 +35,7 @@
 	<h2>Imie: <%=player.getName() %></h2>
 	<h2>Nazwisko: <%=player.getSurname() %></h2>
 	<h2>Email: <%=player.getEmail() %></h2>
-	<h2>Kraj: <%=player.getCounty() %></h2>
+	<h2>Kraj: <%=player.getCountry() %></h2>
 	<h1>Postać</h1>
 	<h2>Imie postaci: <%=character.getName() %></h2>
 	<h2>Frakcja: <%=character.getFaction() %></h2>

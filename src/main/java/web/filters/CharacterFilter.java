@@ -29,7 +29,7 @@ public class CharacterFilter implements Filter {
 		HttpSession session = req.getSession();
 		Character character = (Character) session.getAttribute("character");
 		if(character==null){
-			((HttpServletResponse) response).sendRedirect("/addCharacter.jsp");
+			((HttpServletResponse) response).sendRedirect("addCharacter.jsp");
 		}
 		else{
 			chain.doFilter(request, response);

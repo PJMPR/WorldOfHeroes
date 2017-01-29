@@ -1,30 +1,42 @@
 package domain.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@XmlRootElement
 @Entity
+@Table(name="player")
 @NamedQueries({
-	@NamedQuery(name="player.all", query="SELECT p FROM Player p"),
-	@NamedQuery(name="player.id", query="FROM Player p WHERE p.id=:playerId")
+       @NamedQuery(name = "player.all", query = "SELECT p FROM Player p"),
+       @NamedQuery(name = "player.id", query = "SELECT p FROM Player p WHERE p.id=:id")
 })
 public class Player implements IHaveId {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String login;
 	private String password;
     private String name;
     private String surname;
     private String email;
-    private String county;
+    private String country;
+    
+    @OneToMany(mappedBy="player", fetch = FetchType.LAZY)
+    private List<Character> characters = new ArrayList<Character>();
+
+    public List<Character> getCharacters() {
+		return characters;
+	}
 
     public int getId() {
         return id;
@@ -62,11 +74,11 @@ public class Player implements IHaveId {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getCounty() {
-		return county;
+	public String getCountry() {
+		return country;
 	}
-	public void setCounty(String county) {
-		this.county = county;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 	
 }

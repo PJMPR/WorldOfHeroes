@@ -16,7 +16,7 @@
     </head>
     <body>
         <div>
-            <form  enctype="text/plain">
+            <form enctype="text/plain">
                 <div>
                     Imie postaci:</br>
                     <input name="name" value="Glonfindel" /></br>

@@ -1,44 +1,20 @@
-package domain.model;
+package rest.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
-@Entity
-@Table(name="equipment")
-@NamedQueries({
-       @NamedQuery(name = "equipment.all", query = "SELECT e FROM Equipment e"),
-       @NamedQuery(name = "equipment.id", query = "SELECT e FROM Equipment e WHERE e.id=:id")
-})
-public class Equipment implements IHaveId {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+@XmlRootElement
+public class EquipmentDto {
+
 	private int id;
-	@Column(name = "head")
     private int headId;
-	@Column(name = "shoulder")
     private int shoulderId;
-	@Column(name = "back")
     private int backId;
-	@Column(name = "chest")
     private int chestId;
-	@Column(name = "wrist")
     private int wristId;
-	@Column(name = "hands")
     private int handsId;
-	@Column(name = "waist")
     private int waistId;
-	@Column(name = "legs")
     private int legsId;
-	@Column(name = "feet")
     private int feetId;
-	@Column(name = "weapon")
     private int weaponId;
     
 	public int getId() {
@@ -107,5 +83,5 @@ public class Equipment implements IHaveId {
 	public void setWeaponId(int weaponId) {
 		this.weaponId = weaponId;
 	}
-
+	
 }

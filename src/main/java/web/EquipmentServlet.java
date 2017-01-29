@@ -21,7 +21,7 @@ public class EquipmentServlet extends HttpServlet {
         Character character = (Character) session.getAttribute("character");
         if(character==null)
         { 
-        	response.sendRedirect("/addCharacter.html");
+        	response.sendRedirect("addCharacter.html");
         }
         Item head = new Item();
 		Item shoulder = new Item();
@@ -125,7 +125,7 @@ public class EquipmentServlet extends HttpServlet {
 		equipment.setFeetId(8);
 		equipment.setWeaponId(9);
 		session.setAttribute("equipment", equipment);
-		response.sendRedirect("/final.jsp");
+		response.sendRedirect("final.jsp");
 	}
 
 }

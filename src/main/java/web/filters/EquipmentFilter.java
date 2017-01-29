@@ -28,7 +28,7 @@ public class EquipmentFilter implements Filter {
 		HttpSession session = req.getSession();
 		Equipment equipment = (Equipment) session.getAttribute("equipment");
 		if(equipment==null){
-			((HttpServletResponse) response).sendRedirect("/addEquipment.html");
+			((HttpServletResponse) response).sendRedirect("addEquipment.html");
 		}
 		else{
 			chain.doFilter(request, response);

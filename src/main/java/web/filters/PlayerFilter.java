@@ -29,7 +29,7 @@ public class PlayerFilter implements Filter {
 		HttpSession session = req.getSession();
 		Player player = (Player) session.getAttribute("player");
 		if(player==null){
-			((HttpServletResponse) response).sendRedirect("/addPlayer.html");
+			((HttpServletResponse) response).sendRedirect("addPlayer.html");
 		}
 		else{
 			chain.doFilter(request, response);

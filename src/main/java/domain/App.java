@@ -131,7 +131,7 @@ public class App {
 		player1.setName("Karol");
 		player1.setSurname("Siejka");
 		player1.setEmail("kkaroo@interia.pl");
-		player1.setCounty("Polska");
+		player1.setCountry("Polska");
 		
 		Guild guild1 = new Guild();
 		
@@ -151,9 +151,6 @@ public class App {
 		character1.setAgility(0);
 		character1.setIntellect(0);
 		character1.setStamina(1260);
-		character1.setGuildId(0);
-		character1.setPlayerId(0);
-		character1.setEquipmentId(0);
 
 		try {
 			Connection connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/workdb");
@@ -175,7 +172,6 @@ public class App {
 			catalog.Guilds().add(guild1);
 			catalog.Characters().add(character1);
 			catalog.save();
-			catalog.Characters().setForeignId();
 			catalog.save();
 			System.out.println("Lista imion postaci o lewelu 100:");
 	        for(int i = 0; i < catalog.Characters().withLvl(100).size(); i++) {

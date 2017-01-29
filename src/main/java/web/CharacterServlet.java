@@ -23,7 +23,7 @@ public class CharacterServlet extends HttpServlet {
         Player player = (Player) session.getAttribute("player");
         if(player==null)
         { 
-        	response.sendRedirect("/addPlayer.html");
+        	response.sendRedirect("addPlayer.html");
         }
 		Guild guild = new Guild();
 		guild.setName(request.getParameter("guild_name"));
@@ -42,11 +42,8 @@ public class CharacterServlet extends HttpServlet {
 		character.setStrength(100);
 		character.setIntellect(100);
 		character.setAgility(100);
-		character.setGuildId(0);
-		character.setPlayerId(0);
-		character.setEquipmentId(0);
 		session.setAttribute("character", character);
-		response.sendRedirect("/addEquipment.html");
+		response.sendRedirect("addEquipment.html");
 	}
 
 }
