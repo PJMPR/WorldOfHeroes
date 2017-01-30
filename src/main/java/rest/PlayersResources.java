@@ -73,7 +73,7 @@ public class PlayersResources {
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response get(@PathParam("id") int id){
-		Player result = entityManager.createNamedQuery("player.id", Player.class).setParameter("playerId", id).getSingleResult();
+		Player result = entityManager.createNamedQuery("player.id", Player.class).setParameter("id", id).getSingleResult();
 		if(result==null){
 			return Response.status(404).build();
 		}
@@ -84,7 +84,7 @@ public class PlayersResources {
 	@Path("/{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response update(@PathParam("id") int id, Player p){
-		Player result = entityManager.createNamedQuery("player.id", Player.class).setParameter("playerId", id).getSingleResult();
+		Player result = entityManager.createNamedQuery("player.id", Player.class).setParameter("id", id).getSingleResult();
 		if(result==null){
 			return Response.status(404).build();
 		}
@@ -97,7 +97,7 @@ public class PlayersResources {
 	@DELETE
 	@Path("/{id}")
 	public Response delete(@PathParam("id") int id){
-		Player result = entityManager.createNamedQuery("player.id", Player.class).setParameter("playerId", id).getSingleResult();
+		Player result = entityManager.createNamedQuery("player.id", Player.class).setParameter("id", id).getSingleResult();
 		if(result==null){
 			return Response.status(404).build();
 		}
